@@ -905,7 +905,7 @@
 
   function getTaggedElements(side, tag) {
     function noTaggedElementsFound() {
-      warn('No tagged elements (' + tag + ') found on page')
+      // warn('No tagged elements (' + tag + ') found on page')
       return document.querySelectorAll('body *')
     }
 

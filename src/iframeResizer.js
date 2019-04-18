@@ -287,7 +287,11 @@
         offsetTop: parseInt(iFramePosition.top - bodyPosition.top, 10),
         offsetLeft: parseInt(iFramePosition.left - bodyPosition.left, 10),
         scrollTop: window.pageYOffset,
-        scrollLeft: window.pageXOffset
+        scrollLeft: window.pageXOffset,
+        documentHeight: document.documentElement.clientHeight,
+        documentWidth: document.documentElement.clientWidth,
+        windowHeight: window.innerHeight,
+        windowWidth: window.innerWidth
       })
     }
 
@@ -1169,7 +1173,9 @@
         }
       }
 
-      Object.values(settings).forEach(checkIFrame)
+      Object.keys(settings).forEach(function(key) {
+        checkIFrame(settings[key])
+      })
     }
 
     function mutationObserved(mutations) {
